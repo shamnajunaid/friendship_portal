@@ -92,7 +92,7 @@
              <li><a href="{{route('users')}}"><i class="fa fa-building text-danger"></i>Users</a></li>  
             <li><a href="{{url('requests')}}"><i class="fa fa-building text-danger"></i>Requests</a></li>
             <li><a href="{{url('friends')}}"><i class="fa fa-film text-warning"></i>Friends</a></li>
-            
+            <li><a href="{{url('profile')}}"><i class="fa fa-film text-warning"></i>Profile</a></li>
             
           </ul>
         </section>
