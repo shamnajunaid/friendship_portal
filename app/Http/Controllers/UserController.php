@@ -49,6 +49,8 @@ class UserController extends Controller
        }
        if(empty($request['password'])){
         unset($request['password']);
+       }else{
+        $request['password'] = bcrypt($request['password']);
        }
        $user->update($request->input());
 
