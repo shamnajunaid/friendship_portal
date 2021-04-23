@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 Route::group(['middleware' => 'auth'], function()
 {
-    Route::resource('theater', 'TheaterController');
-    Route::resource('movie', 'MovieController');
-    Route::resource('assign', 'TheaterMovieController');
+    Route::get('/', 'HomeController@index')->name('users');
+    Route::post('/send_request', 'HomeController@create')->name('sendrequest');
+    Route::post('/accept_request', 'HomeController@accept')->name('accept_request');
+    Route::get('/requests', 'HomeController@requests')->name('requests');
+    Route::get('/friends', 'HomeController@friends')->name('friends');
+    Route::get('/profile', 'UserController@edit_profile')->name('profile');
+    Route::resource('user', 'UserController');
 });

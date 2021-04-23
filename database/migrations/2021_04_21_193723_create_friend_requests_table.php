@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMoviesTable extends Migration
+class CreateFriendRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('friend_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('img');
-            $table->integer('theater_id');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->softDeletes();
+            $table->integer('sender_id');
+            $table->integer('receiver_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('friend_requests');
     }
 }

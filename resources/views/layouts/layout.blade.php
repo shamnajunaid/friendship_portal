@@ -42,7 +42,7 @@
       
       <header class="main-header">
         <!-- Logo -->
-         <a href="#" class="logo"><b> Ticket Booking</b></a>
+         <a href="#" class="logo"><b>Friends Portal</b></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -89,9 +89,9 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-              
-            <li><a href="{{url('theater')}}"><i class="fa fa-building text-danger"></i>Theater</a></li>
-            <li><a href="{{url('movie')}}"><i class="fa fa-film text-warning"></i>Movies</a></li>
+             <li><a href="{{route('users')}}"><i class="fa fa-building text-danger"></i>Users</a></li>  
+            <li><a href="{{url('requests')}}"><i class="fa fa-building text-danger"></i>Requests</a></li>
+            <li><a href="{{url('friends')}}"><i class="fa fa-film text-warning"></i>Friends</a></li>
             
             
           </ul>
@@ -117,23 +117,7 @@
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-         $(document).ready(function(){
-      
-        $("#example1").dataTable();
-        $('#example2').dataTable({
-          "bPaginate": true,
-          "bLengthChange": false,
-          "bFilter": false,
-          "bSort": true,
-          "bInfo": true,
-          "bAutoWidth": false
-        });
-
-      tinymce.init({
-        selector: '#content'
-      });
-  
-      });
+        
       $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 3.3.2 JS -->
@@ -180,28 +164,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script>
-  $( function() {
-   $("#datepicker").datepicker({dateFormat:'mm/dd/yy', minDate: new Date(),
-    onSelect: function(selectedDate) {
-            $('#datepicker1').datepicker('option', 'minDate', selectedDate );
-      } });
-    $("#datepicker1").datepicker({dateFormat:'mm/dd/yy', minDate: new Date() });
-  } );
-  $(document).ready(function(){
-    $('input.timepicker').timepicker({});
-    $("#addCF").click(function(){
-    $("#customFields").append('<div class="row"><div class="form-group col-md-6"><label for="name">Time</label> <input type="title" value="{{ old('no_seats') }}" required="" class="form-control timepicker" id="name" name="time[]" placeholder="Title"> <div class="form-group col-md-6"><a href="javascript:void(0);" class="remCF">Remove</a></div></div>');
-   $('input.timepicker').timepicker({});
-   $(".remCF").on('click',function(){
-      $(this).parent().parent().parent().remove();
-    });
-  });
+ 
    
-});
-  </script>
-   
-
+@stack('scripts')
    
   </body>
 </html>
